@@ -4,6 +4,9 @@
 
 <ul>
 	<% @problems.each do |problem| %>
-	<li><%= link_to problem.title, problem_path(problem.id) %></li>
+	<li>
+		<%= link_to problem.title, problem_path(problem.id) %>
+		<%= link_to "[Edit]", edit_problem_path(problem.id) %>
+	</li>
 	<% end %>
 </ui>
