@@ -1,0 +1,14 @@
+<h1>Add new problem</h1>
+
+<%= form_for @problem do |f| %>
+
+<p>
+	<%= f.label :title %><br>
+	<%= f.text_field :title %>
+</p>
+
+<p>
+	<%= f.submit %>
+</p>
+
+<% end %>
