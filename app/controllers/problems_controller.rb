@@ -1,11 +1,12 @@
 class ProblemsController < ApplicationController
 
+	before_action :set_problem, only: [:show, :edit, :update, :destroy]
+
 	def index
 		@problems = Problem.all
 	end
 
 	def show
-		@problem = Problem.find(params[:id])
 	end
 
 	def new
@@ -22,11 +23,9 @@ class ProblemsController < ApplicationController
 	end
 
 	def edit
-		@problem = Problem.find(params[:id])
 	end
 
 	def update
-		@problem = Problem.find(params[:id])
 		if @problem.update(problem_params)
 			redirect_to problems_path
 		else
@@ -35,7 +34,6 @@ class ProblemsController < ApplicationController
 	end
 
 	def destroy
-		@problem = Problem.find(params[:id])
 		@problem.destroy
 		redirect_to problems_path
 	end
@@ -44,6 +42,10 @@ class ProblemsController < ApplicationController
 
 	    def problem_params
 	    	params[:problem].permit(:title, :description)
+	    end
+
+	    def set_problem
+	    	@problem = Problem.find(params[:id])
 	    end
 
 end
