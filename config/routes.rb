@@ -1,6 +1,8 @@
 Probless2::Application.routes.draw do
 
-  resources :problems
+  resources :problems do
+    resources :solutions, only: [:create, :destroy]
+  end
 
   root 'problems#index'
 

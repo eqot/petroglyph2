@@ -3,11 +3,11 @@
 <p><%= link_to "Add new problem", new_problem_path %></p>
 
 <ul>
-	<% @problems.each do |problem| %>
-	<li>
-		<%= link_to problem.title, problem_path(problem.id) %>
-		<%= link_to "[Edit]", edit_problem_path(problem.id) %>
-		<%= link_to "[Delete]", problem_path(problem.id), method: :delete, data: { confirm: "Are you sure?" } %>
-	</li>
-	<% end %>
+  <% @problems.each do |problem| %>
+  <li>
+    <%= link_to problem.title, problem_path(problem.id) %>
+    <%= link_to "[Edit]", edit_problem_path(problem.id) %>
+    <%= link_to "[Delete]", problem_path(problem.id), method: :delete, data: { confirm: "Are you sure?" } %>
+  </li>
+  <% end %>
 </ui>
