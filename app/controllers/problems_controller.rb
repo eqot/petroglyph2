@@ -21,7 +21,7 @@ class ProblemsController < ApplicationController
 	private
 
 	    def problem_params
-	    	params[:problem].permit(:title)
+	    	params[:problem].permit(:title, :description)
 	    end
 
 end
