@@ -14,8 +14,11 @@ class ProblemsController < ApplicationController
 
 	def create
 		@problem = Problem.new(problem_params)
-		@problem.save
-		redirect_to problems_path
+		if @problem.save
+			redirect_to problems_path
+		else
+			render 'new'
+		end
 	end
 
 	private

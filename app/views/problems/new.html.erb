@@ -5,11 +5,17 @@
 <p>
 	<%= f.label :title %><br>
 	<%= f.text_field :title %>
+	<% if @problem.errors.any? %>
+	<%= @problem.errors.messages[:title][0] %>
+	<% end %>
 </p>
 
 <p>
 	<%= f.label :description %><br>
 	<%= f.text_field :description %>
+	<% if @problem.errors.any? %>
+	<%= @problem.errors.messages[:description][0] %>
+	<% end %>
 </p>
 
 <p>
