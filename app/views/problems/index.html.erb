@@ -2,6 +2,6 @@
 
 <ul>
 	<% @problems.each do |problem| %>
-	<li><%= problem.title %></li>
+	<li><%= link_to problem.title, problem_path(problem.id) %></li>
 	<% end %>
 </ui>
