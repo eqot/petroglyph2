@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
+#ruby-gemset=rails_4_0
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
@@ -43,3 +45,21 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'growl'
+  gem 'spork-rails', github: 'sporkrb/spork-rails'
+  gem 'guard-spork'
+  gem 'childprocess'
+end
+
+group :development do
+  gem 'guard-livereload'
+end
+
+group :test do
+  gem 'selenium-webdriver'
+  gem 'capybara'
+end
