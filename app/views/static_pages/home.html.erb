@@ -3,7 +3,7 @@
     <h1>probless</h1>
     <p><b>progless</b> is a web app which aims to minimize <b>prob</b>lems as <b>less</b> as possible.</p>
     <p>This app collects problems from anyone and binds the problems to others who can give advice or solve the problems.</p>
-    <p><a class="btn btn-primary btn-lg" href="#about">Learn more &raquo;</a></p>
+    <%= link_to "Learn more >>", static_pages_about_path, class: "btn btn-primary btn-lg" %>
   </div>
 
   <div class="row">
@@ -16,7 +16,7 @@
         Submitted problems will be listed with a number how many people agree with you.
         The problems with larger number means they should be solved with higher proirity.
       </p>
-      <p><a class="btn btn-default" href="#problems">View problems &raquo;</a></p>
+      <%= link_to "View problems", problems_path, class: "btn btn-default" %>
     </div>
     <div class="col-lg-4">
       <h2>Propose solutions</h2>
@@ -27,7 +27,7 @@
         Proposed solutions are binded to problems so that submitter of the problem can find solutions and pick the best one.
         Solutions which other people proposed might be good hints for you to think better alternatives.
       </p>
-      <p><a class="btn btn-default" href="#solutions">View solutions &raquo;</a></p>
+      <%= link_to "View solutions", problems_path, class: "btn btn-default" %>
     </div>
     <div class="col-lg-4">
       <h2>Vote them</h2>
