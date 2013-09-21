@@ -1,0 +1,23 @@
+<%= form_for @solution do |f| %>
+
+<p>
+	<%= f.label :title %><br>
+	<%= f.text_field :title %>
+	<% if @solution.errors.any? %>
+	<%= @solution.errors.messages[:title][0] %>
+	<% end %>
+</p>
+
+<p>
+	<%= f.label :description %><br>
+	<%= f.text_field :description %>
+	<% if @solution.errors.any? %>
+	<%= @solution.errors.messages[:description][0] %>
+	<% end %>
+</p>
+
+<p>
+	<%= f.submit %>
+</p>
+
+<% end %>
