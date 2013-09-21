@@ -16,7 +16,7 @@ class SolutionsController < ApplicationController
   def create
     @solution = Solution.new(solution_params)
     if @solution.save
-      redirect_to solution_path
+      redirect_to solutions_path
     else
       render 'new'
     end
@@ -27,7 +27,7 @@ class SolutionsController < ApplicationController
 
   def update
     if @solution.update(solution_params)
-      redirect_to solution_path
+      redirect_to solutions_path
     else
       render 'edit'
     end
@@ -35,7 +35,7 @@ class SolutionsController < ApplicationController
 
   def destroy
     @solution.destroy
-    redirect_to solution_path
+    redirect_to solutions_path
   end
 
   private
