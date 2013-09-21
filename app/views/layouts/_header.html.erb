@@ -6,11 +6,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" id="logo" href="#">probless</a>
+      <%= link_to "probless", root_path, class: "navbar-brand", id: "logo" %></li>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li class="active"><%= link_to "Home", root_path %></li>
         <li><%= link_to "About", static_pages_about_path %></li>
         <li><%= link_to "Problems", problems_path %></li>
         <li><%= link_to "Solutions", solutions_path %></li>
