@@ -3,17 +3,3 @@
 
 <%= @problem.description %>
 
-<ul>
-  <% @problem.solutions.each do |solution| %>
-  <li>
-    <%= solution.title %>
-    <%= link_to "[Delete]", problem_solution_path(solution.problem_id, solution.id), method: :delete, data: { confirm: "Are you sure?" } %>
-  </li>
-  <% end %>
-  <li>
-    <%= form_for [@problem, @problem.solutions.build] do |f| %>
-    <%= f.text_field :title %>
-    <%= f.submit %>
-    <% end %>
-  </li>
-</ul>

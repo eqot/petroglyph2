@@ -5,7 +5,7 @@
 <ul>
   <% @problems.each do |problem| %>
   <li>
-    <%= link_to problem.title, problem_path(problem.id) %> (<%= problem.solutions.count %>)
+    <%= link_to problem.title, problem_path(problem.id) %>
     <%= link_to "[Edit]", edit_problem_path(problem.id) %>
     <%= link_to "[Delete]", problem_path(problem.id), method: :delete, data: { confirm: "Are you sure?" } %>
   </li>
