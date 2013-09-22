@@ -21,7 +21,7 @@ describe "Static pages" do
     before { visit about_path }
 
     it { should have_content('About') }
-    it { should have_title("#{base_title}") }
+    it { should have_title("#{base_title} | About") }
 
   end
 
