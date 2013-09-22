@@ -1,23 +1,29 @@
-<%= form_for @solution do |f| %>
+<%= form_for @solution, :html => {:class => "form-horizontal"}  do |f| %>
 
-<p>
-	<%= f.label :title %><br>
-	<%= f.text_field :title %>
-	<% if @solution.errors.any? %>
-	<%= @solution.errors.messages[:title][0] %>
-	<% end %>
-</p>
+  <div class="form-group">
+    <%= f.label :title, class: "col-lg-2 control-label", for: "inputTitle" %>
+    <div class="col-lg-10">
+      <%= f.text_field :title, class: "form-control", id: "inputTitle" %>
+    </div>
+    <% if @solution.errors.any? %>
+    <%= @solution.errors.messages[:title][0] %>
+    <% end %>
+  </div>
 
-<p>
-	<%= f.label :description %><br>
-	<%= f.text_field :description %>
-	<% if @solution.errors.any? %>
-	<%= @solution.errors.messages[:description][0] %>
-	<% end %>
-</p>
+  <div class="form-group">
+    <%= f.label :description, class: "col-lg-2 control-label", for: "inputDescription" %>
+    <div class="col-lg-10">
+      <%= f.text_area :description, class: "form-control", id: "inputDescription", rows: "10" %>
+    </div>
+    <% if @solution.errors.any? %>
+    <%= @solution.errors.messages[:description][0] %>
+    <% end %>
+  </div>
 
-<p>
-	<%= f.submit %>
-</p>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit 'Submit solution', class: "btn btn-primary" %>
+    </div>
+  </div>
 
 <% end %>
