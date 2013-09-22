@@ -10,7 +10,7 @@
     <% else %>
       <div class="col-lg-10">
         <%= f.text_field :title, class: "form-control", id: "inputTitle" %>
-       </div>
+      </div>
     <% end %>
 
     <% if @solution.errors.any? %>
@@ -20,6 +20,7 @@
 
   <div class="form-group">
     <%= f.label :description, class: "col-lg-2 control-label", for: "inputDescription" %>
+
     <% if yield(:static) == "true" then %>
       <div class="col-lg-10">
         <p class="form-control-static"><%= @solution.description %></p>
@@ -38,7 +39,7 @@
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
       <% if yield(:static) == "true" then %>
-        <a class="btn btn-default">Back</a>
+        <%= link_to "Back", solutions_path, class: "btn btn-default" %>
       <% else %>
         <%= f.submit 'Submit solution', class: "btn btn-primary" %>
       <% end %>
