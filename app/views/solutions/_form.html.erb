@@ -2,9 +2,17 @@
 
   <div class="form-group">
     <%= f.label :title, class: "col-lg-2 control-label", for: "inputTitle" %>
-    <div class="col-lg-10">
-      <%= f.text_field :title, class: "form-control", id: "inputTitle" %>
-    </div>
+
+    <% if yield(:static) == "true" then %>
+      <div class="col-lg-10">
+        <p class="form-control-static"><%= @solution.title %></p>
+      </div>
+    <% else %>
+      <div class="col-lg-10">
+        <%= f.text_field :title, class: "form-control", id: "inputTitle" %>
+       </div>
+    <% end %>
+
     <% if @solution.errors.any? %>
     <%= @solution.errors.messages[:title][0] %>
     <% end %>
@@ -12,9 +20,16 @@
 
   <div class="form-group">
     <%= f.label :description, class: "col-lg-2 control-label", for: "inputDescription" %>
-    <div class="col-lg-10">
-      <%= f.text_area :description, class: "form-control", id: "inputDescription", rows: "10" %>
-    </div>
+    <% if yield(:static) == "true" then %>
+      <div class="col-lg-10">
+        <p class="form-control-static"><%= @solution.description %></p>
+      </div>
+    <% else %>
+      <div class="col-lg-10">
+        <%= f.text_area :description, class: "form-control", id: "inputDescription", rows: "10" %>
+      </div>
+    <% end %>
+
     <% if @solution.errors.any? %>
     <%= @solution.errors.messages[:description][0] %>
     <% end %>
@@ -22,7 +37,11 @@
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit 'Submit solution', class: "btn btn-primary" %>
+      <% if yield(:static) == "true" then %>
+        <a class="btn btn-default">Back</a>
+      <% else %>
+        <%= f.submit 'Submit solution', class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 
