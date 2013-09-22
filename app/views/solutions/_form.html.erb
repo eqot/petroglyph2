@@ -3,7 +3,7 @@
   <div class="form-group">
     <%= f.label :title, class: "col-lg-2 control-label", for: "inputTitle" %>
 
-    <% if yield(:static) == "true" then %>
+    <% if yield(:static) == "true" %>
       <div class="col-lg-10">
         <p class="form-control-static"><%= @solution.title %></p>
       </div>
@@ -21,7 +21,7 @@
   <div class="form-group">
     <%= f.label :description, class: "col-lg-2 control-label", for: "inputDescription" %>
 
-    <% if yield(:static) == "true" then %>
+    <% if yield(:static) == "true" %>
       <div class="col-lg-10">
         <p class="form-control-static"><%= @solution.description %></p>
       </div>
@@ -38,7 +38,7 @@
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
-      <% if yield(:static) == "true" then %>
+      <% if yield(:static) == "true" %>
         <%= link_to "Back", solutions_path, class: "btn btn-default" %>
       <% else %>
         <%= f.submit 'Submit solution', class: "btn btn-primary" %>
