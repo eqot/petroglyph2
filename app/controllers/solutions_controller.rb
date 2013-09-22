@@ -11,6 +11,7 @@ class SolutionsController < ApplicationController
 
   def new
     @solution = Solution.new
+    @problem = Problem.find(params[:p])
   end
 
   def create

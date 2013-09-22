@@ -1,0 +1,50 @@
+<%= form_for @problem, :html => {:class => "form-horizontal"} do |f| %>
+
+  <div class="form-group">
+    <%= f.label :title, class: "col-lg-2 control-label", for: "inputTitle" %>
+
+    <% if yield(:problem_static) == "true" %>
+      <div class="col-lg-10">
+        <p class="form-control-static"><%= @problem.title %></p>
+      </div>
+    <% else %>
+      <div class="col-lg-10">
+        <%= f.text_field :title, class: "form-control", id: "inputTitle" %>
+      </div>
+    <% end %>
+
+    <% if @problem.errors.any? %>
+    <%= @problem.errors.messages[:title][0] %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+  	<%= f.label :description, class: "col-lg-2 control-label", for: "inputDescription" %>
+
+    <% if yield(:problem_static) == "true" %>
+      <div class="col-lg-10">
+        <p class="form-control-static"><%= @problem.description %></p>
+      </div>
+    <% else %>
+      <div class="col-lg-10">
+        <%= f.text_area :description, class: "form-control", id: "inputDescription", rows: "10" %>
+      </div>
+    <% end %>
+
+    <% if @problem.errors.any? %>
+    <%= @problem.errors.messages[:description][0] %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <% if yield(:problem_static) == "true" %>
+      <% else %>
+        <%= f.submit 'Submit problem', class: "btn btn-primary" %>
+        <%= link_to "cancel", problems_path, class: "btn btn-default" %>
+      <% end %>
+    </div>
+  </div>
+
+<% end %>
+
