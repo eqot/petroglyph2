@@ -1,4 +1,8 @@
+<h1>View problem</h1>
 <br>
 
 <% provide(:static, "true") %>
 <%= render "form" %>
+
+<br>
+<p><%= link_to "Propose your solution", new_solution_path + "?p=" + getString(@problem.id), class: "btn btn-primary" %></p>

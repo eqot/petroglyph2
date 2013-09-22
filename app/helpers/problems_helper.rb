@@ -8,4 +8,8 @@ module ProblemsHelper
     end
   end
 
+  def getString(number)
+    number.to_s()
+  end
+
 end
