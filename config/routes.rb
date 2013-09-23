@@ -4,9 +4,9 @@ Probless2::Application.routes.draw do
   get 'about' => 'static_pages#about'
   get 'signup' => 'users#new'
 
+  resources :users
   resources :problems
   resources :solutions
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
