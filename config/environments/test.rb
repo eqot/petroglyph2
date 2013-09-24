@@ -33,4 +33,7 @@ Probless2::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Performance improvement by minimizing bcrypt's code.
+  ActiveModel::SecurePassword.min_cost = true
 end

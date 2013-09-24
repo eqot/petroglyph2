@@ -3,8 +3,11 @@ Probless2::Application.routes.draw do
   root 'static_pages#home'
   get 'about' => 'static_pages#about'
   get 'signup' => 'users#new'
+  get 'signin' => 'sessions#new'
+  delete 'signout' => 'sessions#destroy', via: 'delete'
 
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   resources :problems
   resources :solutions
 

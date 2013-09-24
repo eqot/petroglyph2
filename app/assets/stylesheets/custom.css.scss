@@ -30,5 +30,12 @@ body {
 }
 
 .date {
-  font-size: 12px
+  font-size: 12px;
+}
+
+
+@import "twitter/bootstrap";
+
+.field_with_errors {
+  @extend .has-error;
 }
