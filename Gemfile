@@ -52,6 +52,9 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'faker'
 
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'guard-rspec'
