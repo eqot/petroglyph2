@@ -42,8 +42,8 @@ describe "Static pages" do
     click_link "probless"
     expect(page).to have_title("#{base_title}")
 
-    click_link "Sign up"
-    expect(page).to have_title("#{base_title} | Sign up")
+    click_link "Sign in"
+    expect(page).to have_title("#{base_title} | Sign in")
   end
 
 end
