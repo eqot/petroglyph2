@@ -9,4 +9,11 @@ FactoryGirl.define do
       admin true
     end
   end
+
+  factory :problem do
+    title "Title"
+    description "Description"
+    agree 3
+    user
+  end
 end

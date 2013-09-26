@@ -1,4 +1,4 @@
-require 'spec_helper'
+  require 'spec_helper'
 
 describe "User pages" do
 
@@ -55,10 +55,19 @@ describe "User pages" do
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
+    let(:p1) { FactoryGirl.create(:problem, user: user, title: "Title 1", description: "Description 1") }
+    let(:p2) { FactoryGirl.create(:problem, user: user, title: "Title 2", description: "Description 2") }
+
     before { visit user_path(user) }
 
     it { should have_content(user.name) }
     it { should have_title(user.name) }
+
+    describe "problems" do
+      it { should have_content(p1.title) }
+      it { should have_content(p2.title) }
+      it { should have_content(user.problems.count) }
+    end
   end
 
   describe "signup page" do

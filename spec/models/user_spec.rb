@@ -17,6 +17,7 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
+  it { should respond_to(:problems) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -124,6 +125,31 @@ describe User do
     end
 
     it { should be_admin }
+  end
+
+  describe "problem associations" do
+    before { @user.save }
+
+    let!(:older_problem) do
+      FactoryGirl.create(:problem, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_problem) do
+      FactoryGirl.create(:problem, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right problems in the right order" do
+      expect(@user.problems.to_a).to eq [newer_problem, older_problem]
+    end
+
+    it "should destroy associated problems" do
+      problems = @user.problems.to_a
+      @user.destroy
+      expect(problems).not_to be_empty
+      problems.each do |problem|
+        expect(Problem.where(id: problem.id)).to be_empty
+      end
+    end
+
   end
 
 end

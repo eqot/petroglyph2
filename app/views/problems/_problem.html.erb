@@ -1,0 +1,8 @@
+<li>
+  <span class="title"><%= problem.title %></span><br>
+  <span class="description"><%= problem.description %></span><br>
+  <span class="agree"><%= problem.agree %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(problem.created_at) %> ago.
+  </span>
+</li>
