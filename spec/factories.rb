@@ -10,10 +10,10 @@ FactoryGirl.define do
     end
   end
 
-  factory :problem do
+  factory :video do
+    url "http://youtube.com/"
     title "Title"
     description "Description"
-    agree 3
     user
   end
 end

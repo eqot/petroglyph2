@@ -22,7 +22,7 @@ describe "Authentication" do
       it { should_not have_link("Settings") }
       it { should_not have_link("Sign out") }
       it { should have_link("Sign in", href: signin_path) }
-      it { should have_selector("div.alert.alert-danger"), text: "Invalid" }
+      it { should have_selector("div.alert.alert-danger", text: "Invalid") }
 
       describe "after visitin another page" do
         before { click_link "Home" }

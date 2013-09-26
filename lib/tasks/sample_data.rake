@@ -16,11 +16,16 @@ namespace :db do
                    password_confirmation: password)
     end
 
-    # users = User.all(limit: 6)
-    # 50.times do
-    #   title = Faker::Lorem.sentence(1)
-    #   description = Faker::Lorem.sentence(5)
-    #   users.each { |user| user.problems.create!(title: title, description: description)}
-    # end
+    users = User.all(limit: 6)
+    users.first.videos.create!(url: "Url", title: "Title", description: "Description")
+
+    50.times do
+      url = "http://youtube.com"
+      title = Faker::Lorem.sentence(1)
+      description = Faker::Lorem.sentence(5)
+      users.each do |user|
+        user.videos.create!(url: url, title: title, description: description)
+      end
+    end
   end
 end

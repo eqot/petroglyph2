@@ -8,5 +8,12 @@
 
 <div class="col-lg-9">
   <div>
+    <% if @user.videos.any? %>
+      <h3>Videos (<%= @user.videos.count %>)</h3>
+      <ol class="videos">
+        <%= render @videos %>
+      </ol>
+      <%= will_paginate @videos, renderer: BootstrapPagination::Rails, bootstrap: 3 %>
+    <% end %>
   </div>
 </div>
