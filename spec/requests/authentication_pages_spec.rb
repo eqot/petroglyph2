@@ -41,7 +41,7 @@ describe "Authentication" do
       it { should have_link("Settings",    href: edit_user_path(user)) }
       it { should have_link("Sign out",    href: signout_path) }
       it { should_not have_link("Sign in", href: signin_path) }
-      # it { should have_selector("div.alert.alert-danger", "Welcome") }
+      it { should_not have_selector("div.alert.alert-success", "Welcome") }
 
       describe "followed by sign out" do
         before { click_link "Sign out" }
