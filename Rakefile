@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Probless2::Application.load_tasks
+Petroglyph::Application.load_tasks

@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Probless2::Application.config.secret_key_base = '279ddfa4aed3514c7a832b8e349eb8cb0b0f093c9d1e3b8df51ccd8bce5e1bc3d300fcfb40add49a4d817b1a5e362f5b571dbead8a750892e3abde7306a48d9c'
+Petroglyph::Application.config.secret_key_base = '279ddfa4aed3514c7a832b8e349eb8cb0b0f093c9d1e3b8df51ccd8bce5e1bc3d300fcfb40add49a4d817b1a5e362f5b571dbead8a750892e3abde7306a48d9c'

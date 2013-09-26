@@ -1,4 +1,4 @@
-Probless2::Application.routes.draw do
+Petroglyph::Application.routes.draw do
 
   root 'static_pages#home'
   get 'about' => 'static_pages#about'
@@ -8,7 +8,7 @@ Probless2::Application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :videos
+  resources :videos, only: [:index, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

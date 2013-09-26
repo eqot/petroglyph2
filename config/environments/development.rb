@@ -1,4 +1,4 @@
-Probless2::Application.configure do
+Petroglyph::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Add Rack::LiveReload to the bottom of the middleware stack with the default options.
