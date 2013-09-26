@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :problems, dependent: :destroy
+  # has_many :problems, dependent: :destroy
 
   before_save { email.downcase! }
   before_create :create_remember_token

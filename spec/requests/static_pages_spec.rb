@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Static pages" do
 
-  let(:base_title) { "probless" }
+  let(:base_title) { "petroglyph" }
 
   subject { page }
 
@@ -10,7 +10,7 @@ describe "Static pages" do
 
     before { visit root_path }
 
-    it { should have_content('probless') }
+    it { should have_content('petroglyph') }
     it { should have_title("#{base_title}") }
     it { should_not have_title('| Home') }
 
@@ -30,16 +30,12 @@ describe "Static pages" do
 
     click_link "About"
     expect(page).to have_title("#{base_title} | About")
-    click_link "Problems"
-    expect(page).to have_title("#{base_title} | Problems")
-    click_link "Solutions"
-    expect(page).to have_title("#{base_title} | Solutions")
     click_link "Home"
     expect(page).to have_title("#{base_title}")
 
     click_link "Learn more >>"
     expect(page).to have_title("#{base_title} | About")
-    click_link "probless"
+    click_link "petroglyph"
     expect(page).to have_title("#{base_title}")
 
     click_link "Sign in"

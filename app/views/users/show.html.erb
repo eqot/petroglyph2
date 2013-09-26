@@ -8,12 +8,5 @@
 
 <div class="col-lg-9">
   <div>
-    <% if @user.problems.any? %>
-      <h3>Problems (<%= @user.problems.count %>)</h3>
-      <ol class="problems">
-        <%= render @problems %>
-      </ol>
-      <%= will_paginate @problems, renderer: BootstrapPagination::Rails, bootstrap: 3 %>
-    <% end %>
   </div>
 </div>
