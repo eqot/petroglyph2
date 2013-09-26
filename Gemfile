@@ -66,6 +66,7 @@ end
 
 group :development do
   gem 'guard-livereload'
+  gem 'rack-livereload'
 end
 
 group :test do
