@@ -1,6 +1,5 @@
 <li>
-  <span class="url"><%= video.url %></span><br>
-  <span class="title"><%= video.title %></span><br>
+  <span class="title"><a href="<%= video.url %>"><h4><%= video.title %></h4></a></span>
   <span class="description"><%= video.description %></span><br>
   <span class="timestamp">
     Submitted <%= time_ago_in_words(video.created_at) %> ago.
