@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+  before_action :signed_in_user, only: [:create, :destroy]
 
   def new
     @video = Video.new
@@ -15,6 +16,9 @@ class VideosController < ApplicationController
 
   def index
     @videos = Video.paginate(page: params[:page])
+  end
+
+  def destroy
   end
 
   private

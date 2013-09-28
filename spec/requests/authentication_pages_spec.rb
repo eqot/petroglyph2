@@ -89,6 +89,16 @@ describe "Authentication" do
         end
 
       end
+
+      describe "in the videos controller" do
+        before { post videos_path }
+        specify { expect(response).to redirect_to(signin_path) }
+      end
+
+      describe "submitting to the destroy action" do
+        before { delete video_path(FactoryGirl.create(:video)) }
+        specify { expect(response).to redirect_to(signin_path) }
+      end
     end
 
     describe "as wrong user" do
