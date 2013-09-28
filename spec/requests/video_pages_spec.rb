@@ -4,9 +4,10 @@ describe "Video pages" do
 
   subject { page }
 
-  describe "index" do
-    # let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:user) }
+  before { sign_in user }
 
+  describe "index" do
     before { visit videos_path }
 
     it { should have_title("All videos") }
@@ -25,6 +26,28 @@ describe "Video pages" do
     #     end
     #   end
 
+    end
+  end
+
+  describe "creation" do
+    before { visit new_video_path }
+
+    describe "with invalid information" do
+      it "should not create a video" do
+        expect { click_button "Add video" }.not_to change(Video, :count)
+      end
+
+      describe "error message" do
+        before { click_button "Add video" }
+        it { should have_selector("div.field_with_errors") }
+      end
+    end
+
+    describe "with valid information" do
+      before { fill_in "Url", with: "Lorem ipsum" }
+      it "should create a video" do
+        expect { click_button "Add video" }.to change(Video, :count).by(1)
+      end
     end
 
   end
