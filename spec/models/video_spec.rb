@@ -4,8 +4,7 @@ describe Video do
 
   let(:user) { FactoryGirl.create(:user) }
   before do
-    @video = user.videos.build(url: "Lorem ipsum", title: "Title", description: "Description")
-    # @video = Video.new(url: "Lorem ipsum", user_id: user.id)
+    @video = user.videos.build(url: "http://www.youtube.com/", title: "Title", description: "Description")
   end
 
   subject { @video }
@@ -27,6 +26,16 @@ describe Video do
   describe "with blank url" do
     before { @video.url = " " }
     it { should_not be_valid }
+  end
+
+  describe "with a wrong url" do
+    before { @video.url = "Lorem ipsum" }
+    it { should_not be_valid }
+  end
+
+  describe "with a right url" do
+    before { @video.url = "http://www.youtube.com/" }
+    it { should be_valid }
   end
 
 end
