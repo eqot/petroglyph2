@@ -1,19 +1,25 @@
-<li>
-  <span class="title"><a href="<%= video.url %>">
-    <h4>
-      <% if video.title != "" %>
+<li class="media">
+  <a href="<%= video.url %>" class="thumbnail pull-left">
+    <%= image_tag thumbnail_url(video.url) %>
+  </a>
+
+  <div class="media-body">
+    <span class="title"><a href="<%= video.url %>">
+      <h4>
+        <% if video.title != "" %>
         <%= video.title %>
-      <% else %>
+        <% else %>
         (no title)
-      <% end %>
-    </h4>
-  </a></span>
+        <% end %>
+      </h4>
+    </a></span>
 
-  <% if video.description != "" %>
+    <% if video.description != "" %>
     <span class="description"><%= video.description %></span><br>
-  <% end %>
+    <% end %>
 
-  <span class="timestamp">
-    Submitted <%= time_ago_in_words(video.created_at) %> ago.
-  </span>
+    <span class="timestamp">
+      Submitted <%= time_ago_in_words(video.created_at) %> ago.
+    </span>
+  </div>
 </li>

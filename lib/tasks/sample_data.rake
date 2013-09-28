@@ -17,10 +17,9 @@ namespace :db do
     end
 
     users = User.all(limit: 6)
-    users.first.videos.create!(url: "Url", title: "Title", description: "Description")
 
     50.times do
-      url = "http://youtube.com"
+      url = "http://www.youtube.com/"
       title = Faker::Lorem.sentence(1)
       description = Faker::Lorem.sentence(5)
       users.each do |user|

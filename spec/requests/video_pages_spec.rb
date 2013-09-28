@@ -44,7 +44,7 @@ describe "Video pages" do
     end
 
     describe "with valid information" do
-      before { fill_in "Url", with: "Lorem ipsum" }
+      before { fill_in "Url", with: "http://www.youtube.com/" }
       it "should create a video" do
         expect { click_button "Add video" }.to change(Video, :count).by(1)
       end
