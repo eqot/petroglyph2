@@ -13,7 +13,9 @@
     var videoId = getVideoId(url);
     // console.log(videoId);
 
-    $.get('http://gdata.youtube.com/feeds/api/videos/' + videoId + '?v=2&alt=jsonc&callback=onGetInfo');
+    if (videoId) {
+      $.get('http://gdata.youtube.com/feeds/api/videos/' + videoId + '?v=2&alt=jsonc&callback=onGetInfo');
+    }
   };
 
   window.onGetInfo = function (res) {
@@ -23,5 +25,12 @@
 
     $('#inputTitle').val(data.title);
     $('#inputDescription').val(data.description);
+  };
+
+  window.onKeyPress = function (event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      onChangeUrl();
+    }
   };
 })();
