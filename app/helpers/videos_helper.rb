@@ -23,4 +23,21 @@ module VideosHelper
     end
   end
 
+  def get_player(video)
+    videoId = get_id(video)
+    "http://www.youtube.com/embed/" + videoId + "?enablejsapi=1"
+  end
+
+  private
+
+    def get_id(video)
+      uri = URI(video.url)
+      if uri.host == 'www.youtube.com'
+        params = CGI::parse("#{uri.query}")
+        params['v'].first
+      else
+        nil
+      end
+    end
+
 end

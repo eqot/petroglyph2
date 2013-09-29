@@ -18,6 +18,10 @@ class VideosController < ApplicationController
     @videos = Video.paginate(page: params[:page])
   end
 
+  def show
+    @video = Video.find(params[:id])
+  end
+
   def destroy
   end
 
