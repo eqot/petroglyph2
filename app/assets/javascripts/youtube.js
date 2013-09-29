@@ -23,8 +23,10 @@
     // console.log(data.title);
     // console.log(data.description);
 
-    $('#inputTitle').val(data.title);
-    $('#inputDescription').val(data.description);
+    if (data) {
+      $('#inputTitle').val(data.title);
+      $('#inputDescription').val(data.description);
+    }
   };
 
   window.onKeyPress = function (event) {
