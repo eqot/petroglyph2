@@ -3,8 +3,8 @@ require 'cgi'
 
 module VideosHelper
 
-  def thumbnail_url(video_uri)
-    uri = URI(video_uri)
+  def get_thumbnail(video)
+    uri = URI(video.url)
     if uri.host == 'www.youtube.com'
       # YouTube's thumbnail
       params = CGI::parse("#{uri.query}")
@@ -12,6 +12,14 @@ module VideosHelper
       "http://i.ytimg.com/vi/#{id}/default.jpg"
     else
       nil
+    end
+  end
+
+  def get_title(video)
+    if video && video.title.length > 0
+      video.title
+    else
+      "(no title)"
     end
   end
 

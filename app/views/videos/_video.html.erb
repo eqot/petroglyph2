@@ -1,21 +1,13 @@
 <li class="media">
-  <a href="<%= video.url %>" class="thumbnail pull-left">
-    <%= image_tag thumbnail_url(video.url) %>
-  </a>
+  <%= link_to image_tag(get_thumbnail(video)), video, class: "thumbnail pull-left" %>
 
   <div class="media-body">
-    <span class="title"><a href="<%= video.url %>">
-      <h4>
-        <% if video.title != "" %>
-        <%= video.title %>
-        <% else %>
-        (no title)
-        <% end %>
-      </h4>
-    </a></span>
+    <span class="title">
+      <h4><%= link_to get_title(video), video %></h4>
+    </span>
 
-    <% if video.description != "" %>
-    <span class="description"><%= video.description %></span><br>
+    <% if video && video.description.length > 0 %>
+      <span class="description"><%= video.description %></span><br>
     <% end %>
 
     <span class="timestamp">
