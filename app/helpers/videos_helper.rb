@@ -25,7 +25,11 @@ module VideosHelper
 
   def get_player(video)
     videoId = get_id(video)
-    "http://www.youtube.com/embed/" + videoId + "?enablejsapi=1"
+    if videoId
+      "http://www.youtube.com/embed/" + videoId + "?enablejsapi=1"
+    else
+      ""
+    end
   end
 
   private
