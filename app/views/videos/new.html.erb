@@ -8,7 +8,7 @@
     <%= f.label :url, class: "col-lg-3 control-label", for: "inputUrl" %>
 
     <div class="col-lg-6">
-      <%= f.text_field :url, class: "form-control", id: "inputUrl" %>
+      <%= f.text_field :url, class: "form-control", id: "inputUrl", onchange: "onChangeUrl()" %>
     </div>
 
     <% if @video.errors.any? %>
@@ -40,7 +40,7 @@
     <%= f.label :description, class: "col-lg-3 control-label", for: "inputDescription" %>
 
     <div class="col-lg-6">
-      <%= f.text_area :description, class: "form-control", id: "inputDescription", rows: "3" %>
+      <%= f.text_area :description, class: "form-control", id: "inputDescription", rows: "10" %>
     </div>
 
     <% if @video.errors.any? %>
