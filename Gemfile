@@ -22,7 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -59,7 +59,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'growl'
-  gem 'spork-rails', github: 'sporkrb/spork-rails'
+  gem 'spork-rails'
   gem 'guard-spork'
   gem 'childprocess'
 end
