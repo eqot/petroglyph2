@@ -1,6 +1,6 @@
 pid "tmp/pids/unicorn.pid"
-listen 8080
-# listen "/var/tmp/.unicorn.sock"
+# listen 8080
+listen "/var/tmp/.unicorn.sock"
 worker_processes 1
 timeout 20
 stdout_path "log/unicorn-out.log"
