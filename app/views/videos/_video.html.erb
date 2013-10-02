@@ -10,8 +10,13 @@
       <span class="description"><%= video.description %></span><br>
     <% end %>
 
-    <span class="timestamp">
-      Submitted <%= time_ago_in_words(video.created_at) %> ago.
-    </span>
+    <div class="col-lg-3 pull-right">
+      <span class="timestamp">
+        Submitted <%= time_ago_in_words(video.created_at) %> ago
+      </span><br>
+      <span>
+        <%= gravatar_for(get_user(video.user_id), { size: 25 }) %>
+        <%= get_user(video.user_id).name %>
+      </span>
   </div>
 </li>
