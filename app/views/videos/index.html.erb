@@ -1,8 +1,9 @@
 <% provide(:title, "All videos") %>
 
-<h1>All videos</h1>
-
-<%= link_to "Add video", new_video_path, class: "btn btn-primary pull-right" %>
+<h1>
+  All videos
+  <%= link_to "Add video", new_video_path, class: "btn btn-primary pull-right" %>
+</h1>
 
 <%= will_paginate @videos, renderer: BootstrapPagination::Rails, bootstrap: 3 %>
 
