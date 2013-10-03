@@ -1,5 +1,6 @@
 class VideosController < ApplicationController
   before_action :signed_in_user, only: [:new, :create, :destroy]
+  before_action :get_video, only: [:show, :edit, :update, :destroy]
 
   def new
     @video = Video.new
@@ -19,11 +20,22 @@ class VideosController < ApplicationController
   end
 
   def show
-    @video = Video.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @video.update_attributes(video_params)
+      flash[:success] = "Video updated."
+      redirect_to @video
+    else
+      render 'edit'
+    end
   end
 
   def destroy
-    Video.find(params[:id]).destroy
+    @video.destroy
     flash[:success] = "Video deleted."
     redirect_to videos_url
   end
@@ -32,6 +44,10 @@ class VideosController < ApplicationController
 
     def video_params
       params.require(:video).permit(:url, :title, :description)
+    end
+
+    def get_video
+      @video = Video.find(params[:id])
     end
 
 end
