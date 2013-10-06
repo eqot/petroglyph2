@@ -66,27 +66,3 @@ $grayLighter: #999;
   }
 }
 
-
-/* videos */
-
-.videos {
-  list-style: none;
-  margin: 10px 0 0 0;
-  padding: 0;
-
-  li {
-    padding: 10px 0;
-    margin: 0;
-    border-top: 1px solid #e8e8e8;
-
-    .thumbnail {
-      width: 120px;
-      height: 90px;
-      margin-right: 14px;
-    }
-
-    .timestamp {
-      color: $grayLighter;
-    }
-  }
-}

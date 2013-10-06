@@ -1,22 +1,21 @@
 <li class="media">
   <%= link_to image_tag(get_thumbnail(video)), video, class: "thumbnail pull-left" %>
 
+  <div class="col-lg-3 pull-right">
+    <p class="timestamp">
+      Submitted <%= time_ago_in_words(video.created_at) %> ago
+    </p>
+    <p>
+      <%= gravatar_for(get_user(video.user_id), { size: 25 }) %>
+      <%= get_user(video.user_id).name %>
+    </p>
+  </div>
+
   <div class="media-body">
-    <span class="title">
-      <h4><%= link_to get_title(video), video %></h4>
-    </span>
+    <h4 class="title"><%= link_to get_title(video), video %></h4>
 
     <% if video && video.description.length > 0 %>
-      <span class="description"><%= video.description %></span><br>
+      <p class="description"><%= video.description %></p>
     <% end %>
-
-    <div class="col-lg-3 pull-right">
-      <span class="timestamp">
-        Submitted <%= time_ago_in_words(video.created_at) %> ago
-      </span><br>
-      <span>
-        <%= gravatar_for(get_user(video.user_id), { size: 25 }) %>
-        <%= get_user(video.user_id).name %>
-      </span>
   </div>
 </li>
