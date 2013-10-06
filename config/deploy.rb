@@ -36,3 +36,13 @@ set :scm,             :none
 set :deploy_via,      :copy
 set :copy_exclude, [".git", "**/.git", ".DS_Store", ".svn", "**/.svn", "**/scss", "public/**/config.rb"]
 default_run_options[:pty] = true
+
+namespace :deploy do
+  task :restart, :except => { :no_release => true } do
+    #do nothing.
+  end
+
+  task :finalize_update, :except => { :no_release => true } do
+    run "mv -f #{latest_release}/config/database.yml.custom #{latest_release}/config/database.yml"
+  end
+end
