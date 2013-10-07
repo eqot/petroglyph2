@@ -36,7 +36,7 @@ set :repository, "./"
 set :deploy_to, "/usr/share/nginx/rails/petroglyph/"
 set :scm,             :none
 set :deploy_via,      :copy
-set :copy_exclude, [".git", "**/.git", ".DS_Store", ".svn", "**/.svn", "**/scss", "public/**/config.rb"]
+set :copy_exclude, [".git", "**/.git", ".DS_Store", ".svn", "**/.svn", "**/scss", "public/**/config.rb", "coverage"]
 default_run_options[:pty] = true
 
 namespace :deploy do
