@@ -29,6 +29,10 @@ module VideosHelper
     end
   end
 
+  def simple_time(time)
+    time.strftime("%b %d '%y at %H:%M")
+  end
+
   private
 
     def get_id(video)
