@@ -11,7 +11,7 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 
 # Use sqlite3 and mysql as the database for Active Record
 gem 'sqlite3'
-gem 'mysql'
+gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
