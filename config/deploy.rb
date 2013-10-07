@@ -28,6 +28,8 @@ role :app, domain                          # This may be the same as your `Web` 
 #   end
 # end
 
+set :keep_releases, 5
+
 set :user, "ec2-user"
 set :use_sudo, false
 set :repository, "./"
@@ -45,4 +47,26 @@ namespace :deploy do
   task :finalize_update, :except => { :no_release => true } do
     run "mv -f #{latest_release}/config/database.yml.custom #{latest_release}/config/database.yml"
   end
+end
+
+set :unicorn_pid, "/var/tmp/unicorn.pid"
+
+namespace :unicorn do
+  task :restart do
+    run "kill -USR2 `cat #{unicorn_pid}`"
+    run "kill -QUIT `cat #{unicorn_pid}.oldbin`"
+  end
+end
+
+after "deploy:restart", "unicorn:restart"
+
+
+### Growl
+
+after "deploy:restart" do
+  system("which -s growlnotify && growlnotify -n 'Capistrano' -t 'Capistrano' -m 'Completed.'")
+end
+
+after "deploy:rollback" do
+  system("which -s growlnotify && growlnotify -n 'Capistrano' -t 'Capistrano' -m 'Failed.' -p -1")
 end
