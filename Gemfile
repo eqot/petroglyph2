@@ -80,3 +80,5 @@ end
 group :assets do
   gem 'turbo-sprockets-rails3'
 end
+
+gem 'simplecov', :require => false, :group => :test
