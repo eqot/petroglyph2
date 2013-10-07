@@ -68,6 +68,7 @@ end
 group :development do
   gem 'guard-livereload'
   gem 'rack-livereload'
+  gem "rails_best_practices"
 end
 
 group :test do
