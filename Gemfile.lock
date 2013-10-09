@@ -7,6 +7,13 @@ GIT
       railties (>= 3.0)
       sass (>= 3.2)
 
+GIT
+  remote: git://github.com/capistrano/rvm.git
+  revision: 76d7cd6bd86430210d7eb8cbc209f4b5161c42a2
+  specs:
+    capistrano-rvm (0.0.1)
+      capistrano
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -43,6 +50,10 @@ GEM
       i18n
       rake (>= 10.0.0)
       sshkit (>= 0.0.23)
+    capistrano-bundler (1.0.0)
+      capistrano (>= 3.0.0.pre)
+    capistrano-rails (1.0.0)
+      capistrano
     capybara (2.1.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -264,7 +275,10 @@ PLATFORMS
 DEPENDENCIES
   anjlab-bootstrap-rails!
   bcrypt-ruby (~> 3.0.0)
-  capistrano
+  capistrano (~> 3.0)
+  capistrano-bundler
+  capistrano-rails
+  capistrano-rvm!
   capybara
   childprocess
   coffee-rails (~> 4.0.0)

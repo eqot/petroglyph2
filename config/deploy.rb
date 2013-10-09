@@ -1,58 +1,45 @@
-#require "bundler/capistrano"
+set :application, 'petroglyph'
+set :repo_url, 'https://github.com/eqot/petroglyph2.git'
 
-set :application, "petroglyph"
+# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
-#set :domain, "dummy.com"
+set :deploy_to, '/usr/share/nginx/rails/petroglyph'
+# set :scm, :git
 
-role :web, domain                          # Your HTTP server, Apache/etc
-role :app, domain                          # This may be the same as your `Web` server
+# set :format, :pretty
+# set :log_level, :debug
+# set :pty, true
 
+set :linked_files, %w{config/database.yml}
+# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
-### Deployment
-
-set :user, "ec2-user"
-set :use_sudo, false
-set :repository, "./"
-set :deploy_to, "/usr/share/nginx/rails/petroglyph/"
-set :scm,             :none
-set :deploy_via,      :copy
-set :copy_exclude, [".git", "**/.git", ".DS_Store", ".svn", "**/.svn", "**/scss", "public/**/config.rb", "coverage"]
-default_run_options[:pty] = true
+# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+# set :keep_releases, 5
 
 namespace :deploy do
-  task :restart, :except => { :no_release => true } do
-    #do nothing.
-  end
+  # set :unicorn_pid, "/var/tmp/unicorn.pid"
 
-  task :finalize_update, :except => { :no_release => true } do
-    run "mv -f #{latest_release}/config/database.yml.custom #{latest_release}/config/database.yml"
-  end
-end
-
-after "deploy:restart", "deploy:cleanup"
-set :keep_releases, 5
-
-
-### Unicorn
-
-set :unicorn_pid, "/var/tmp/unicorn.pid"
-
-namespace :unicorn do
+  desc 'Restart application'
   task :restart do
-    run "kill -USR2 `cat #{unicorn_pid}`"
-    run "kill -QUIT `cat #{unicorn_pid}.oldbin`"
+    on roles(:app), in: :sequence, wait: 5 do
+      # Your restart mechanism here, for example:
+      # execute :touch, release_path.join('tmp/restart.txt')
+      # execute "kill -USR2 `cat #{unicorn_pid}`"
+      # execute "kill -QUIT `cat #{unicorn_pid}.oldbin`"
+      execute "kill -USR2 `cat /var/tmp/unicorn.pid`"
+      execute "kill -QUIT `cat /var/tmp/unicorn.pid.oldbin`"
+    end
   end
-end
 
-after "deploy:restart", "unicorn:restart"
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      # Here we can do anything such as:
+      # within release_path do
+      #   execute :rake, 'cache:clear'
+      # end
+    end
+  end
 
+  after :finishing, 'deploy:cleanup'
 
-### Growl
-
-after "deploy:restart" do
-  system("which -s growlnotify && growlnotify -n 'Capistrano' -t 'Capistrano' -m 'Completed.'")
-end
-
-after "deploy:rollback" do
-  system("which -s growlnotify && growlnotify -n 'Capistrano' -t 'Capistrano' -m 'Failed.' -p -1")
 end
