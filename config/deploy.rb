@@ -42,4 +42,12 @@ namespace :deploy do
 
   after :finishing, 'deploy:cleanup'
 
+  after :finished, :notify do
+    system("which -s growlnotify && growlnotify -n 'Capistrano' -t 'Capistrano' -m 'Completed.'")
+  end
+
+  # after :rollback, :notify do
+  #   system("which -s growlnotify && growlnotify -n 'Capistrano' -t 'Capistrano' -m 'Failed.' -p -1")
+  # end
+
 end
