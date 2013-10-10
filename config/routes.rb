@@ -11,6 +11,7 @@ Petroglyph::Application.routes.draw do
   # resources :videos, only: [:index, :new, :create, :destroy]
   resources :videos
   resources :playlists
+  resources :requests
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
