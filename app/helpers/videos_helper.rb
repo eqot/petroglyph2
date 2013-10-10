@@ -20,6 +20,18 @@ module VideosHelper
     end
   end
 
+  def get_duration(video)
+    duration = video.duration
+    if duration
+      sec = duration % 60;
+      min = (duration / 60).floor % 60;
+      hour = (duration / 3600).floor;
+      (hour > 0 ? hour.to_s + ':' : '') + min.to_s + ':' + (sec < 10 ? '0' + sec.to_s : sec.to_s)
+    else
+      ""
+    end
+  end
+
   def get_player(video)
     videoId = get_id(video)
     if videoId

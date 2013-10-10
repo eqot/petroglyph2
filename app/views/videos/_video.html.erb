@@ -1,5 +1,12 @@
 <li class="media">
-  <%= link_to image_tag(get_thumbnail(video)), video, class: "thumbnail pull-left" %>
+  <%= link_to video do %>
+    <div class="thumbnail pull-left">
+      <%= image_tag(get_thumbnail(video)) %>
+      <span class="duration">
+        <%= get_duration(video) %>
+      </span>
+    </div>
+  <% end %>
 
   <div class="col-lg-3 pull-right">
     <p class="timestamp">

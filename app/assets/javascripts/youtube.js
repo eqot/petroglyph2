@@ -20,12 +20,14 @@
 
   window.onGetInfo = function (res) {
     var data = res.data;
+    // console.log(data);
     // console.log(data.title);
     // console.log(data.description);
 
     if (data) {
       $('#inputTitle').val(data.title);
       $('#inputDescription').val(data.description);
+      $('#inputDuration').val(data.duration);
     }
   };
 
