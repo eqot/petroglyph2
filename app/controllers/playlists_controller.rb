@@ -1,5 +1,5 @@
 class PlaylistsController < ApplicationController
-  before_action :get_playlist, only: [:show]
+  before_action :get_playlist, only: [:show, :edit, :update]
 
   def new
     @playlist = Playlist.new
@@ -19,6 +19,18 @@ class PlaylistsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @playlist.update_attributes(playlist_params)
+      flash[:success] = 'Playlist updated.'
+      redirect_to @playlist
+    else
+      render 'edit'
+    end
   end
 
   private
