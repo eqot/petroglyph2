@@ -1,4 +1,5 @@
 class PlaylistsController < ApplicationController
+  before_action :get_playlist, only: [:show]
 
   def new
     @playlist = Playlist.new
@@ -17,10 +18,17 @@ class PlaylistsController < ApplicationController
     @playlists = Playlist.paginate(page: params[:page])
   end
 
+  def show
+  end
+
   private
 
     def playlist_params
       params.require(:playlist).permit(:title, :description)
+    end
+
+    def get_playlist
+      @playlist = Playlist.find(params[:id])
     end
 
 end
