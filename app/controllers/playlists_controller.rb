@@ -1,5 +1,5 @@
 class PlaylistsController < ApplicationController
-  before_action :get_playlist, only: [:show, :edit, :update]
+  before_action :get_playlist, only: [:show, :edit, :update, :destroy]
 
   def new
     @playlist = Playlist.new
@@ -31,6 +31,12 @@ class PlaylistsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @playlist.destroy
+    flash[:success] = 'Playlist deleted.'
+    redirect_to playlists_url
   end
 
   private
