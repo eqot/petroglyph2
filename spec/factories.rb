@@ -12,8 +12,15 @@ FactoryGirl.define do
 
   factory :video do
     url "http://youtube.com/"
-    title "Title"
-    description "Description"
+    title "Video"
+    description "Video Description"
     user
   end
+
+  factory :playlist do
+    title "Playlist"
+    description "Playlist Description"
+    user
+  end
+
 end
