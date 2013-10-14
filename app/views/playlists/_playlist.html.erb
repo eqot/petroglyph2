@@ -15,5 +15,9 @@
     <% if playlist && playlist.description.length > 0 %>
       <p class="description"><%= playlist.description %></p>
     <% end %>
+
+    <div>
+      <%= pluralize(playlist.contained_videos.count, 'video') %>
+    </div>
   </div>
 </li>
