@@ -32,8 +32,9 @@ def make_videos
     url = "http://www.youtube.com/"
     title = Faker::Lorem.sentence(1)
     description = Faker::Lorem.sentence(5)
+    duration = 12 * 60 + 34
     users.each do |user|
-      user.videos.create!(url: url, title: title, description: description)
+      user.videos.create!(url: url, title: title, description: description, duration: duration)
     end
   end
 end
