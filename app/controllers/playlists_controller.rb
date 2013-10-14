@@ -19,6 +19,7 @@ class PlaylistsController < ApplicationController
   end
 
   def show
+    @videos = @playlist.contained_videos.paginate(page: params[:page])
   end
 
   def edit
