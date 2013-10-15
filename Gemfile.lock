@@ -9,9 +9,9 @@ GIT
 
 GIT
   remote: git://github.com/capistrano/rvm.git
-  revision: 02e879b83789e22f89a581f95c13418a3481a80b
+  revision: 05e37c4ec2f6f27104d5db84d5b84e27bcbcb74a
   specs:
-    capistrano-rvm (0.0.1)
+    capistrano-rvm (0.0.2)
       capistrano
 
 GEM
@@ -133,7 +133,7 @@ GEM
     mime-types (1.25)
     mini_portile (0.5.1)
     minitest (4.7.5)
-    multi_json (1.8.1)
+    multi_json (1.8.2)
     mysql2 (0.3.13)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
