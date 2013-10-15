@@ -30,9 +30,8 @@ class PlaylistsController < ApplicationController
   end
 
   def update
-    update_videos
-
     if @playlist.update_attributes(playlist_params)
+      update_videos
       flash[:success] = 'Playlist updated.'
       redirect_to @playlist
     else
