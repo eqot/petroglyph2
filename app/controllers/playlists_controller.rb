@@ -4,11 +4,13 @@ class PlaylistsController < ApplicationController
 
   def new
     @playlist = Playlist.new
+    @videos = Video.all
   end
 
   def create
     @playlist = current_user.playlists.build(playlist_params)
     if @playlist.save
+      update_videos
       redirect_to playlists_path
     else
       render 'new'
