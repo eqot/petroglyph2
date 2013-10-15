@@ -23,9 +23,12 @@ class PlaylistsController < ApplicationController
   end
 
   def edit
+    @videos = Video.all
   end
 
   def update
+    update_videos
+
     if @playlist.update_attributes(playlist_params)
       flash[:success] = 'Playlist updated.'
       redirect_to @playlist
@@ -48,6 +51,38 @@ class PlaylistsController < ApplicationController
 
     def get_playlist
       @playlist = Playlist.find(params[:id])
+    end
+
+    def update_videos
+      old_videos = @playlist.contained_videos
+      new_videos = params[:playlist][:videos].keys
+      removed_videos = []
+      added_videos = []
+
+      old_videos.each do |v|
+        index = new_videos.index(v)
+        if index
+          new_videos.delete_at(index)
+        else
+          removed_videos << v
+        end
+      end
+
+      new_videos.each do |v|
+        index = old_videos.index(v)
+        if index
+        else
+          added_videos << v
+        end
+      end
+
+      removed_videos.each do |v|
+        @playlist.remove_id!(v)
+      end
+
+      added_videos.each do |v|
+        @playlist.add_id!(v)
+      end
     end
 
 end

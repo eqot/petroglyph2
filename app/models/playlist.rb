@@ -12,11 +12,23 @@ class Playlist < ActiveRecord::Base
     contains.find_by(video_id: other_video.id)
   end
 
+  def containing_id?(other_video_id)
+    contains.find_by(video_id: other_video_id)
+  end
+
   def add!(other_video)
     contains.create!(video_id: other_video.id)
   end
 
+  def add_id!(other_video_id)
+    contains.create!(video_id: other_video_id)
+  end
+
   def remove!(other_video)
     contains.find_by(video_id: other_video.id).destroy
+  end
+
+  def remove_id!(other_video_id)
+    contains.find_by(video_id: other_video_id).destroy
   end
 end
