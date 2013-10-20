@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :videos, dependent: :destroy
   has_many :playlists, dependent: :destroy
+  has_many :video_likes, dependent: :destroy
 
   before_save { email.downcase! }
   before_create :create_remember_token
@@ -19,6 +20,18 @@ class User < ActiveRecord::Base
 
   def User.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def video_like!(video)
+    video_likes.create!(video_id: video.id)
+  end
+
+  def video_dislike!(video)
+    video_likes.find_by(video_id: video.id).destroy
+  end
+
+  def video_like?(video)
+    video_likes.find_by(video_id: video.id)
   end
 
   private

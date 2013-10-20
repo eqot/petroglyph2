@@ -26,7 +26,7 @@ def make_users
 end
 
 def make_videos
-  users = User.all(limit: 6)
+  users = User.all[0..5]
 
   50.times do
     url = "http://www.youtube.com/"
@@ -40,7 +40,7 @@ def make_videos
 end
 
 def make_playlists
-  users = User.all(limit: 6)
+  users = User.all[0..5]
 
   10.times do
     title = Faker::Lorem.sentence(1)

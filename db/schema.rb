@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131014151648) do
+ActiveRecord::Schema.define(version: 20131020025708) do
 
   create_table "contains", force: true do |t|
     t.integer  "video_id"
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 20131014151648) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+
+  create_table "video_likes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "video_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "video_likes", ["user_id", "video_id"], name: "index_video_likes_on_user_id_and_video_id", unique: true
+  add_index "video_likes", ["user_id"], name: "index_video_likes_on_user_id"
+  add_index "video_likes", ["video_id"], name: "index_video_likes_on_video_id"
 
   create_table "videos", force: true do |t|
     t.string   "url"

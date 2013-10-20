@@ -16,6 +16,8 @@ describe Video do
   it { should respond_to(:user) }
   it { should respond_to(:contains) }
   it { should respond_to(:containers) }
+  it { should respond_to(:video_likes) }
+  it { should respond_to(:likes) }
   its(:user) { should eq user }
 
   it { should be_valid }

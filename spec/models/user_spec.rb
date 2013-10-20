@@ -18,6 +18,10 @@ describe User do
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
   it { should respond_to(:videos) }
+  it { should respond_to(:video_likes) }
+  it { should respond_to(:video_like!) }
+  it { should respond_to(:video_dislike!) }
+  it { should respond_to(:video_like?) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -150,6 +154,24 @@ describe User do
       end
     end
 
+  end
+
+  describe 'like video' do
+    let(:video) { FactoryGirl.create(:video) }
+    before do
+      @user.save
+      @user.video_like!(video)
+    end
+
+    it { should be_video_like(video) }
+    # its(:video_likes) { should include(video) }
+
+    describe 'dislike video' do
+      before { @user.video_dislike!(video) }
+
+      it { should_not be_video_like(video) }
+      # its(:video_likes) { should_not include(video) }
+    end
   end
 
 end
