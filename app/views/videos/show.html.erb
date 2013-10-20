@@ -3,6 +3,18 @@
 <h1>
   <%= get_title(@video) %>
   <div class="pull-right">
+    <% unless current_user?(@user) %>
+      <span id="video_like_count">
+        <%= pluralize(@video.likes.count, 'like') %>
+      </span>
+      <div id="video_like_form">
+        <% if !current_user.video_like?(@video) %>
+          <%= render 'like' %>
+        <% else %>
+          <%= render 'dislike' %>
+        <% end %>
+      </div>
+    <% end %>
     <%= link_to "Edit", edit_video_path(@video), class: "btn btn-default" %>
     <%= link_to "Delete", @video, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
   </div>
