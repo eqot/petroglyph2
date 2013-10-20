@@ -5,6 +5,7 @@ namespace :db do
     make_videos
     make_playlists
     make_contains
+    make_video_likes
   end
 end
 
@@ -56,4 +57,12 @@ def make_contains
   playlist = playlists.first
   videos = Video.all[2..49]
   videos.each { |v| playlist.add!(v) }
+end
+
+def make_video_likes
+  users = User.all[0..5]
+  videos = Video.all[0..4]
+  users.each do |user|
+    videos.each { |video| user.video_like!(video) }
+  end
 end
