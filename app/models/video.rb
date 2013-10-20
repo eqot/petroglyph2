@@ -5,7 +5,7 @@ class Video < ActiveRecord::Base
   has_many :contains
   has_many :containers, through: :contains
   has_many :video_likes
-  has_many :likes, through: :video_likes
+  has_many :likes, through: :video_likes, source: :user
 
   default_scope -> { order('created_at DESC') }
 
