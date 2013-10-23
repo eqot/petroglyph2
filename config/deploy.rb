@@ -17,17 +17,15 @@ set :linked_files, %w{config/database.yml}
 set :keep_releases, 5
 
 namespace :deploy do
-  # set :unicorn_pid, "/var/tmp/unicorn.pid"
+  set :unicorn_pid, "/var/tmp/unicorn.pid"
 
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
       # execute :touch, release_path.join('tmp/restart.txt')
-      # execute "kill -USR2 `cat #{unicorn_pid}`"
-      # execute "kill -QUIT `cat #{unicorn_pid}.oldbin`"
-      execute "kill -USR2 `cat /var/tmp/unicorn.pid`"
-      execute "kill -QUIT `cat /var/tmp/unicorn.pid.oldbin`"
+      execute :kill, "-USR2 `cat #{fetch(:unicorn_pid)}`"
+      execute :kill, "-QUIT `cat #{fetch(:unicorn_pid)}.oldbin`"
     end
   end
 
