@@ -9,6 +9,8 @@ role :app, %w{petroglyph.dip.jp}
 role :web, %w{petroglyph.dip.jp}
 role :db,  %w{petroglyph.dip.jp}
 
+set :rails_env, 'production'
+
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server
