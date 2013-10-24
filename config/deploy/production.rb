@@ -5,9 +5,9 @@ set :stage, :production
 # Supports bulk-adding hosts to roles, the primary
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
-role :app, %w{petroglyph.dip.jp}
-role :web, %w{petroglyph.dip.jp}
-role :db,  %w{petroglyph.dip.jp}
+role :app, %w{pet}
+role :web, %w{pet}
+role :db,  %w{pet}
 
 set :rails_env, 'production'
 
