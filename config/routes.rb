@@ -8,7 +8,6 @@ Petroglyph::Application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  # resources :videos, only: [:index, :new, :create, :destroy]
   resources :videos
   resources :video_likes, only: [:create, :destroy]
   resources :playlists
