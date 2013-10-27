@@ -18,14 +18,36 @@ set :keep_releases, 5
 
 namespace :deploy do
   set :unicorn_pid, "/var/tmp/unicorn.pid"
+  # set :unicorn_config, "#{current_path}/config/unicorn/#{fetch(:rails_env)}.rb"
+  set :unicorn_config, "#{current_path}/config/unicorn.conf.rb"
+
+  def start_unicorn
+    within current_path do
+      execute :bundle, :exec, :unicorn, "-c #{fetch(:unicorn_config)} -E #{fetch(:rails_env)} -D"
+    end
+  end
+
+  def stop_unicorn
+    execute :kill, "-QUIT `cat #{fetch(:unicorn_pid)}`"
+  end
+
+  def reload_unicorn
+    execute :kill, "-USR2 `cat #{fetch(:unicorn_pid)}`"
+    execute :kill, "-QUIT `cat #{fetch(:unicorn_pid)}.oldbin`"
+  end
 
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
       # execute :touch, release_path.join('tmp/restart.txt')
-      execute :kill, "-USR2 `cat #{fetch(:unicorn_pid)}`"
-      execute :kill, "-QUIT `cat #{fetch(:unicorn_pid)}.oldbin`"
+      # execute :kill, "-USR2 `cat #{fetch(:unicorn_pid)}`"
+      # execute :kill, "-QUIT `cat #{fetch(:unicorn_pid)}.oldbin`"
+      if test("[ -f #{fetch(:unicorn_pid)} ]")
+        reload_unicorn
+      else
+        start_unicorn
+      end
     end
   end
 
