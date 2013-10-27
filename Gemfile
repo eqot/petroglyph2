@@ -13,6 +13,9 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 gem 'sqlite3'
 gem 'mysql2'
 
+# Use device for account management
+gem 'devise'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
