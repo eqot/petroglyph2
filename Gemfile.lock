@@ -9,9 +9,9 @@ GIT
 
 GIT
   remote: git://github.com/capistrano/rvm.git
-  revision: e8a9132802126e67189085a0197afc91830dc276
+  revision: 7796a68d634158bc1174d15ca92b8f86ea697eef
   specs:
-    capistrano-rvm (0.0.2)
+    capistrano-rvm (0.0.3)
       capistrano
 
 GEM
@@ -255,9 +255,9 @@ GEM
     turbolinks (1.3.0)
       coffee-rails
     tzinfo (0.3.38)
-    uglifier (2.2.1)
+    uglifier (2.3.0)
       execjs (>= 0.3.0)
-      multi_json (~> 1.0, >= 1.0.2)
+      json (>= 1.8.0)
     unicorn (4.6.3)
       kgio (~> 2.6)
       rack
