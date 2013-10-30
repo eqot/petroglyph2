@@ -32,4 +32,7 @@ Petroglyph::Application.configure do
 
   # Specify log level
   # config.log_level = :fatal
+
+  # Settings for devise.
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
