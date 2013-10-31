@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git://github.com/capistrano/rvm.git
-  revision: 7796a68d634158bc1174d15ca92b8f86ea697eef
+  revision: 454ad9b7356ae262200e8f8472e3895771301c66
   specs:
     capistrano-rvm (0.0.3)
       capistrano
@@ -95,7 +95,7 @@ GEM
       railties (>= 3.0.0)
     faker (1.2.0)
       i18n (~> 0.5)
-    ffi (1.9.0)
+    ffi (1.9.3)
     formatador (0.2.4)
     growl (1.0.3)
     guard (2.2.2)
@@ -187,12 +187,12 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
-    require_all (1.3.1)
+    require_all (1.3.2)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
-    rspec-core (2.14.6)
+    rspec-core (2.14.7)
     rspec-expectations (2.14.3)
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.14.4)
