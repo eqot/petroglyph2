@@ -11,7 +11,7 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 
 # Use sqlite3 and mysql as the database for Active Record
 gem 'sqlite3'
-gem 'mysql2'
+gem 'mysql2', group: :production
 
 # Use device for account management
 gem 'devise'
