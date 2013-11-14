@@ -75,7 +75,7 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     colored (1.2)
-    devise (3.2.0)
+    devise (3.2.1)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
