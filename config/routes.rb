@@ -3,12 +3,12 @@ Petroglyph::Application.routes.draw do
   devise_for :users
   root 'static_pages#home'
   get 'about' => 'static_pages#about'
-  get 'signup' => 'users#new'
-  get 'signin' => 'sessions#new'
-  delete 'signout' => 'sessions#destroy', via: 'delete'
+  # get 'signup' => 'users#new'
+  # get 'signin' => 'sessions#new'
+  # delete 'signout' => 'sessions#destroy', via: 'delete'
 
-  resources :users
-  resources :sessions, only: [:new, :create, :destroy]
+  # resources :users
+  # resources :sessions, only: [:new, :create, :destroy]
   resources :videos
   resources :video_likes, only: [:create, :destroy]
   resources :playlists
